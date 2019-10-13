@@ -1,6 +1,7 @@
 package by.it;
 
 import by.it.entity.Person;
+import by.it.entity.Status;
 import by.it.util.HibernateUtil;
 import org.hibernate.Session;
 import org.junit.Test;
@@ -11,6 +12,7 @@ public class SessionFactoryTest {
     public void save() {
         Session session = HibernateUtil.getSession();
         Person person = new Person(null, 50, "Test", "Test", null);
+        person.setStatus(Status.OPEN);
         session.beginTransaction();
         session.save(person);
         session.getTransaction().commit();

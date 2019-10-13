@@ -22,6 +22,10 @@ public class Person {
     @Column
     private String surname;
 
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
     @Transient
     private String fullName;
 
@@ -80,6 +84,22 @@ public class Person {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     @Override
